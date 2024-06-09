@@ -29,7 +29,7 @@ public partial class App : Application
         {
             singleViewPlatform.MainView = new MainView
             {
-                DataContext = new MainViewModel()
+                DataContext = Services?.GetRequiredService<MainViewModel>()
             };
         }
 
@@ -45,6 +45,7 @@ public partial class App : Application
         IServiceCollection serviceCollection = new ServiceCollection();
 
         serviceCollection.AddTransient<ViewLocator>();
+        serviceCollection.AddSingleton<MainViewModel>();
         serviceCollection.AddView<MainHeaderViewModel, MainHeaderView>();
 
         Services = serviceCollection.BuildServiceProvider();

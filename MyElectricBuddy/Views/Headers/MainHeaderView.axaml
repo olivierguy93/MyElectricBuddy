@@ -30,7 +30,7 @@
 
         <!--Settings-->
         <Viewbox Grid.Column="2">
-            <Button
+            <Button x:Name="Settings"
                     Content="{materialIcons:MaterialIconExt Kind=Settings}" />
         </Viewbox>
     </Grid>

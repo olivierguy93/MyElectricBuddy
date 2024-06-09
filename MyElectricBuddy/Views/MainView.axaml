@@ -16,15 +16,19 @@
             ColumnDefinitions="6*,4*">
 
         <!-- Header -->
-        <header:MainHeaderView  Grid.Row="0"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="2" />
+        <ContentPresenter   x:Name="Header"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Content="{Binding HeaderViewModel}" />
 
         <!-- Main view -->
-        <Panel	Grid.Row="1"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Background="AntiqueWhite" />
+        <ContentPresenter   x:Name="MainContent"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Background="AntiqueWhite"
+                            Content="{Binding MainContentViewModel}" />
 
         <!-- Side bar (Menu) -->
         <Panel	Grid.Row="1"

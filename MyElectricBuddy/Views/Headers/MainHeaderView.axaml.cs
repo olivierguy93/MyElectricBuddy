@@ -1,6 +1,7 @@
 using Avalonia.ReactiveUI;
-using Microsoft.Extensions.DependencyInjection;
 using MyElectricBuddy.Core.ViewModels.Headers;
+using ReactiveUI;
+using System.Reactive.Disposables;
 
 namespace MyElectricBuddy.Core.Views.Headers
 {
@@ -9,7 +10,13 @@ namespace MyElectricBuddy.Core.Views.Headers
         public MainHeaderView()
         {
             InitializeComponent();
-            DataContext = App.Services?.GetRequiredService<MainHeaderViewModel>();
+
+            this.WhenActivated(disposables =>
+            {
+                this.BindCommand(ViewModel, x => x.OnSettingPressedCommand, x => x.Settings)
+                    .DisposeWith(disposables);
+                //Add binding to button command here
+            });
         }
     }
 }

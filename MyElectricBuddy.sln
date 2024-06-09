@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyElectricBuddy.Core", "MyE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyElectricBuddy.Android", "MyElectricBuddy.Android\MyElectricBuddy.Android.csproj", "{4E19A398-7115-4EB3-94DE-692EDB0F88BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyElectricBuddy.Desktop", "MyElectricBuddy.Desktop\MyElectricBuddy.Desktop.csproj", "{9E63BD86-50BE-4A2C-A83C-F1C72F2F384C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{4E19A398-7115-4EB3-94DE-692EDB0F88BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E19A398-7115-4EB3-94DE-692EDB0F88BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E19A398-7115-4EB3-94DE-692EDB0F88BD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9E63BD86-50BE-4A2C-A83C-F1C72F2F384C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E63BD86-50BE-4A2C-A83C-F1C72F2F384C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E63BD86-50BE-4A2C-A83C-F1C72F2F384C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E63BD86-50BE-4A2C-A83C-F1C72F2F384C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
