@@ -1,16 +1,35 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:MyElectricBuddy.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="MyElectricBuddy.Views.MainView"
-             x:DataType="vm:MainViewModel">
-  <Design.DataContext>
+<UserControl    xmlns="https://github.com/avaloniaui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:vm="clr-namespace:MyElectricBuddy.ViewModels"
+                mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                x:Class="MyElectricBuddy.Views.MainView"
+                x:DataType="vm:MainViewModel">
+    <Design.DataContext>
     <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
+        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainViewModel />
+    </Design.DataContext>
+	<Grid   RowDefinitions="1*, 9*"
+		    ColumnDefinitions="6*,4*">
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<!-- Header -->
+		<Panel  Grid.Row="0"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+			    Background="Aqua" />
+
+		<!-- Main view -->
+		<Panel	Grid.Row="1"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				Background="AntiqueWhite"/>
+		
+		<!-- Side bar (Menu) -->
+		<Panel	Grid.Row="1"
+				Grid.Column="0"
+				Background="Aquamarine"/>
+		
+	</Grid>
 </UserControl>
