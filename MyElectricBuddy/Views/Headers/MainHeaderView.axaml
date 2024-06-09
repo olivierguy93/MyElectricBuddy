@@ -2,23 +2,36 @@
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
                 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
                 xmlns:vm="clr-namespace:MyElectricBuddy.Core.ViewModels.Headers"
                 x:Class="MyElectricBuddy.Core.Views.Headers.MainHeaderView"
                 x:DataType="vm:MainHeaderViewModel">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainHeaderViewModel />
+    </Design.DataContext>
 
     <Grid ColumnDefinitions="1*,8*,1*">
 
         <!--Open Menu-->
-        <Panel	Grid.Column="0"
-                Background="AliceBlue" />
+        <Viewbox Grid.Column="0">
+            <Button
+                    Content="{materialIcons:MaterialIconExt Kind=Menu}" />
+        </Viewbox>
 
         <!--Application name / Section name?-->
-        <Panel	Grid.Column="1"
-                Background="Aqua" />
+        <Viewbox Grid.Column="1"
+                 Margin=" 15 5 15 5">
+            <TextBlock  Text="{Binding Title}"
+                        TextAlignment="Center" />
+        </Viewbox>
 
         <!--Settings-->
-        <Panel	Grid.Column="2"
-                Background="AliceBlue" />
+        <Viewbox Grid.Column="2">
+            <Button
+                    Content="{materialIcons:MaterialIconExt Kind=Settings}" />
+        </Viewbox>
     </Grid>
 </UserControl>
