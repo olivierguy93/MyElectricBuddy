@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace MyElectricBuddy.ViewModels;
+namespace MyElectricBuddy.Core.ViewModels;
 
 public class ViewModelBase : ReactiveObject
 {

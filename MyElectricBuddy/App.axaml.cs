@@ -1,11 +1,10 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using MyElectricBuddy.Core.ViewModels;
+using MyElectricBuddy.Core.Views;
 
-using MyElectricBuddy.ViewModels;
-using MyElectricBuddy.Views;
-
-namespace MyElectricBuddy;
+namespace MyElectricBuddy.Core;
 
 public partial class App : Application
 {

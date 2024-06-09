@@ -2,6 +2,7 @@
 
 using Avalonia;
 using Avalonia.ReactiveUI;
+using MyElectricBuddy.Core;
 
 namespace MyElectricBuddy.Desktop;
 

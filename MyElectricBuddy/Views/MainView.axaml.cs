@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls;
 
-namespace MyElectricBuddy.Views;
+namespace MyElectricBuddy.Core.Views;
 
 public partial class MainView : UserControl
 {

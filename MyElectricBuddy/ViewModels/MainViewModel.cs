@@ -1,4 +1,4 @@
-﻿namespace MyElectricBuddy.ViewModels;
+﻿namespace MyElectricBuddy.Core.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
