@@ -35,9 +35,11 @@ public class MainViewModel : ViewModelBase
         // Keeping it for now so the main view can be displayed in the designer
     }
 
-    public MainViewModel(MainHeaderViewModel headerViewModel)
+    public MainViewModel(MainHeaderViewModel headerViewModel, HomePageViewModel homePageViewModel)
     {
         HeaderViewModel = _headerViewModel = headerViewModel;
+        MainContentViewModel = _mainContentViewModel = homePageViewModel;
+
         HeaderViewModel.SettingsPressed += OnSettingsPressed;
         HeaderViewModel.MenuPressed += OnMenuPressed;
     }

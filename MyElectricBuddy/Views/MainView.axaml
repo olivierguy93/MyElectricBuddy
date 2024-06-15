@@ -29,10 +29,10 @@
                                     Background="LightBlue" />
             </SplitView.Pane>
 
-            <!-- Main view -->
-            <ContentPresenter   x:Name="MainContent"
-                                Background="AntiqueWhite"
-                                Content="{Binding MainContentViewModel}" />
+            <SplitView.Content>
+                <TransitioningContentControl    x:Name="MainContent"
+                                                Content="{Binding MainContentViewModel}" />
+            </SplitView.Content>
         </SplitView>
     </Grid>
 </UserControl>

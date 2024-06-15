@@ -47,6 +47,7 @@ public partial class App : Application
         serviceCollection.AddTransient<ViewLocator>();
         serviceCollection.AddSingleton<MainViewModel>();
         serviceCollection.AddView<MainHeaderViewModel, MainHeaderView>();
+        serviceCollection.AddView<HomePageViewModel, HomePageView>();
 
         Services = serviceCollection.BuildServiceProvider();
     }
