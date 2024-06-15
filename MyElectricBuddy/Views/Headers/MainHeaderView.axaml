@@ -17,7 +17,7 @@
 
         <!--Open Menu-->
         <Viewbox Grid.Column="0">
-            <Button
+            <Button x:Name="Menu"
                     Content="{materialIcons:MaterialIconExt Kind=Menu}" />
         </Viewbox>
 

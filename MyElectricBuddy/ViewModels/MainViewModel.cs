@@ -22,14 +22,31 @@ public class MainViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _mainContentViewModel, value);
     }
 
+    private bool _isMenuOpened;
+
+    public bool IsMenuOpened
+    {
+        get => _isMenuOpened;
+        set => this.RaiseAndSetIfChanged(ref _isMenuOpened, value);
+    }
+
+    public MainViewModel()
+    {
+        // Keeping it for now so the main view can be displayed in the designer
+    }
+
     public MainViewModel(MainHeaderViewModel headerViewModel)
     {
         HeaderViewModel = _headerViewModel = headerViewModel;
         HeaderViewModel.SettingsPressed += OnSettingsPressed;
+        HeaderViewModel.MenuPressed += OnMenuPressed;
     }
 
     private void OnSettingsPressed(object? sender, SettingsPressedEventArgs e)
     {
         //TODO display the settings view
     }
+
+    private void OnMenuPressed(object? sender, MenuPressedEventArgs e)
+        => IsMenuOpened = !IsMenuOpened;
 }

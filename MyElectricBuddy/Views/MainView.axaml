@@ -12,28 +12,27 @@
         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainViewModel />
     </Design.DataContext>
-    <Grid   RowDefinitions="0.5*, 9.5*"
-            ColumnDefinitions="6*,4*">
+    <Grid   RowDefinitions="0.5*, 9.5*">
 
         <!-- Header -->
         <ContentPresenter   x:Name="Header"
                             Grid.Row="0"
                             Grid.Column="0"
-                            Grid.ColumnSpan="2"
                             Content="{Binding HeaderViewModel}" />
 
-        <!-- Main view -->
-        <ContentPresenter   x:Name="MainContent"
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Background="AntiqueWhite"
-                            Content="{Binding MainContentViewModel}" />
+        <SplitView  Grid.Row="1"
+                    IsPaneOpen="{Binding IsMenuOpened}">
+            <SplitView.Pane>
 
-        <!-- Side bar (Menu) -->
-        <Panel	Grid.Row="1"
-                Grid.Column="0"
-                Background="Aquamarine"
-                IsVisible="true" />
+                <!--Menu section-->
+                <ContentPresenter   x:Name="Menu"
+                                    Background="LightBlue" />
+            </SplitView.Pane>
+
+            <!-- Main view -->
+            <ContentPresenter   x:Name="MainContent"
+                                Background="AntiqueWhite"
+                                Content="{Binding MainContentViewModel}" />
+        </SplitView>
     </Grid>
 </UserControl>

@@ -15,6 +15,9 @@ namespace MyElectricBuddy.Core.Views.Headers
             {
                 this.BindCommand(ViewModel, x => x.OnSettingPressedCommand, x => x.Settings)
                     .DisposeWith(disposables);
+
+                this.BindCommand(ViewModel, x => x.OnMenuPressedCommand, x => x.Menu)
+                    .DisposeWith(disposables);
                 //Add binding to button command here
             });
         }

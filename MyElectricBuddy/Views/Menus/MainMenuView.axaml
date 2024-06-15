@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="MyElectricBuddy.Core.Views.Menus.MainMenuView">
-    <SplitView IsPaneOpen="True"
-             DisplayMode="Inline"
-             OpenPaneLength="300">
+    <SplitView IsPaneOpen="False"
+             DisplayMode="Overlay"
+             OpenPaneLength="600">
         <SplitView.Pane>
             <TextBlock Text="Pane"
                        FontSize="24"
