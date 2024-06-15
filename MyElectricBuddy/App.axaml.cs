@@ -37,7 +37,6 @@ public partial class App : Application
         }
 
         DataTemplates.Add(Services!.GetRequiredService<ViewLocator>());
-
         base.OnFrameworkInitializationCompleted();
     }
 

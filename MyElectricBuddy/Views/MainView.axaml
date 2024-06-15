@@ -27,14 +27,13 @@
 
                 <!--Menu section -->
                 <ContentPresenter   x:Name="MenuDisplayer"
-                                    Background="{DynamicResource MaterialBackgroundBrush}"
+                                    Background="{DynamicResource MaterialCardBackgroundBrush}"
                                     Content="{Binding Menu}" />
             </SplitView.Pane>
 
             <SplitView.Content>
                 <!-- Content displayer -->
                 <TransitioningContentControl    x:Name="ContentDisplayer"
-                                                Background="AliceBlue"
                                                 Content="{Binding Content}" />
             </SplitView.Content>
         </SplitView>
