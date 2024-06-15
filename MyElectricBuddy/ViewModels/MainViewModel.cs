@@ -1,25 +1,28 @@
 ﻿using MyElectricBuddy.Core.Events.Headers;
 using MyElectricBuddy.Core.ViewModels.Headers;
+using MyElectricBuddy.Core.ViewModels.Menus;
+using MyElectricBuddy.Core.ViewModels.Pages;
 using ReactiveUI;
+using System.Reactive.Disposables;
 
 namespace MyElectricBuddy.Core.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
-    private MainHeaderViewModel _headerViewModel;
+    private MainHeaderViewModel _header;
 
-    public MainHeaderViewModel HeaderViewModel
+    public MainHeaderViewModel Header
     {
-        get => _headerViewModel;
-        set => this.RaiseAndSetIfChanged(ref _headerViewModel, value);
+        get => _header;
+        set => this.RaiseAndSetIfChanged(ref _header, value);
     }
 
-    private ViewModelBase? _mainContentViewModel;
+    private BasePageViewModel? _content;
 
-    public ViewModelBase? MainContentViewModel
+    public BasePageViewModel? Content
     {
-        get => _mainContentViewModel;
-        set => this.RaiseAndSetIfChanged(ref _mainContentViewModel, value);
+        get => _content;
+        set => this.RaiseAndSetIfChanged(ref _content, value);
     }
 
     private bool _isMenuOpened;
@@ -30,18 +33,38 @@ public class MainViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _isMenuOpened, value);
     }
 
+    private MainMenuViewModel _menu;
+
+    public MainMenuViewModel Menu
+    {
+        get => _menu;
+        set => this.RaiseAndSetIfChanged(ref _menu, value);
+    }
+
     public MainViewModel()
     {
         // Keeping it for now so the main view can be displayed in the designer
     }
 
-    public MainViewModel(MainHeaderViewModel headerViewModel, HomePageViewModel homePageViewModel)
+    public MainViewModel(MainHeaderViewModel headerViewModel,
+        HomePageViewModel homePageViewModel,
+        MainMenuViewModel mainMenuViewModel)
     {
-        HeaderViewModel = _headerViewModel = headerViewModel;
-        MainContentViewModel = _mainContentViewModel = homePageViewModel;
+        Header = _header = headerViewModel;
+        Content = _content = homePageViewModel;
+        Menu = _menu = mainMenuViewModel;
 
-        HeaderViewModel.SettingsPressed += OnSettingsPressed;
-        HeaderViewModel.MenuPressed += OnMenuPressed;
+        this.WhenActivated((CompositeDisposable disposables) =>
+        {
+            Header.SettingsPressed += OnSettingsPressed;
+            Header.MenuPressed += OnMenuPressed;
+
+            Disposable.Create(() =>
+            {
+                Header.SettingsPressed -= OnSettingsPressed;
+                Header.MenuPressed -= OnMenuPressed;
+            }).DisposeWith(disposables);
+        });
     }
 
     private void OnSettingsPressed(object? sender, SettingsPressedEventArgs e)

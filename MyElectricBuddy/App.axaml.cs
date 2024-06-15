@@ -6,8 +6,11 @@ using MyElectricBuddy.Core.Extensions;
 using MyElectricBuddy.Core.Helpers;
 using MyElectricBuddy.Core.ViewModels;
 using MyElectricBuddy.Core.ViewModels.Headers;
+using MyElectricBuddy.Core.ViewModels.Menus;
+using MyElectricBuddy.Core.ViewModels.Pages;
 using MyElectricBuddy.Core.Views;
 using MyElectricBuddy.Core.Views.Headers;
+using MyElectricBuddy.Core.Views.Menus;
 using System;
 
 namespace MyElectricBuddy.Core;
@@ -44,10 +47,11 @@ public partial class App : Application
 
         IServiceCollection serviceCollection = new ServiceCollection();
 
-        serviceCollection.AddTransient<ViewLocator>();
-        serviceCollection.AddSingleton<MainViewModel>();
-        serviceCollection.AddView<MainHeaderViewModel, MainHeaderView>();
-        serviceCollection.AddView<HomePageViewModel, HomePageView>();
+        serviceCollection.AddTransient<ViewLocator>()
+            .AddSingleton<MainViewModel>()
+            .AddView<MainHeaderViewModel, MainHeaderView>()
+            .AddView<HomePageViewModel, HomePageView>()
+            .AddView<MainMenuViewModel, MainMenuView>();
 
         Services = serviceCollection.BuildServiceProvider();
     }

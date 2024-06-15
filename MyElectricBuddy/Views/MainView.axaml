@@ -15,23 +15,27 @@
     <Grid   RowDefinitions="0.5*, 9.5*">
 
         <!-- Header -->
-        <ContentPresenter   x:Name="Header"
+        <ContentPresenter   x:Name="HeaderDisplayer"
                             Grid.Row="0"
                             Grid.Column="0"
-                            Content="{Binding HeaderViewModel}" />
+                            Content="{Binding Header}" />
 
-        <SplitView  Grid.Row="1"
+        <SplitView  x:Name="SidePanel"
+                    Grid.Row="1"
                     IsPaneOpen="{Binding IsMenuOpened}">
             <SplitView.Pane>
 
-                <!--Menu section-->
-                <ContentPresenter   x:Name="Menu"
-                                    Background="LightBlue" />
+                <!--Menu section -->
+                <ContentPresenter   x:Name="MenuDisplayer"
+                                    Background="{DynamicResource MaterialBackgroundBrush}"
+                                    Content="{Binding Menu}" />
             </SplitView.Pane>
 
             <SplitView.Content>
-                <TransitioningContentControl    x:Name="MainContent"
-                                                Content="{Binding MainContentViewModel}" />
+                <!-- Content displayer -->
+                <TransitioningContentControl    x:Name="ContentDisplayer"
+                                                Background="AliceBlue"
+                                                Content="{Binding Content}" />
             </SplitView.Content>
         </SplitView>
     </Grid>

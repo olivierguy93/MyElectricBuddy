@@ -37,4 +37,8 @@
       <LastGenOutput>Globalization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Pages\Calculators\" />
+  </ItemGroup>
 </Project>
